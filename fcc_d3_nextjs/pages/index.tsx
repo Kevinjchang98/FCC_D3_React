@@ -1,11 +1,8 @@
 import type { NextPage } from 'next';
 import styles from '../styles/Home.module.css';
-import * as d3 from 'd3';
-
-interface Datum {
-    key: string;
-    value: number;
-}
+import BackgroundCircle from '../components/BackgroundCircle';
+import Eyes from '../components/Eye';
+import Mouth from '../components/Mouth';
 
 const Home: NextPage = () => {
     const width = 960;
@@ -19,37 +16,22 @@ const Home: NextPage = () => {
     const mouthWidth = 20;
     const mouthRadius = 140;
 
-    const mouthArc = d3
-        .arc<void, void>()
-        .innerRadius(mouthRadius)
-        .outerRadius(mouthRadius + mouthWidth)
-        .startAngle(Math.PI / 2)
-        .endAngle(Math.PI * (3 / 2));
-
     return (
         <div className={styles.container}>
             <svg width={width} height={height}>
                 <g transform={`translate(${centerX}, ${centerY})`}>
-                    <circle
-                        r={centerY - strokeWidth / 2}
-                        fill={'yellow'}
-                        stroke={'black'}
+                    <BackgroundCircle
+                        height={height}
                         strokeWidth={strokeWidth}
-                    ></circle>
+                    />
 
-                    <circle
-                        cx={-eyeOffsetX}
-                        cy={-eyeOffsetY}
-                        r={eyeRadius}
-                    ></circle>
+                    <Eyes
+                        eyeOffsetX={eyeOffsetX}
+                        eyeOffsetY={eyeOffsetY}
+                        eyeRadius={eyeRadius}
+                    ></Eyes>
 
-                    <circle
-                        cx={eyeOffsetX}
-                        cy={-eyeOffsetY}
-                        r={eyeRadius}
-                    ></circle>
-
-                    <path d={mouthArc() || ''}></path>
+                    <Mouth mouthRadius={mouthRadius} mouthWidth={mouthWidth} />
                 </g>
             </svg>
         </div>
