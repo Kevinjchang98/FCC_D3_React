@@ -1,39 +1,30 @@
+import { range } from 'd3';
 import type { NextPage } from 'next';
+import Face from '../components/Face';
 import styles from '../styles/Home.module.css';
-import BackgroundCircle from '../components/BackgroundCircle';
-import Eyes from '../components/Eye';
-import Mouth from '../components/Mouth';
 
 const Home: NextPage = () => {
-    const width = 960;
-    const height = 500;
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const strokeWidth = 10;
-    const eyeOffsetX = 90;
-    const eyeOffsetY = 90;
-    const eyeRadius = 50;
-    const mouthWidth = 20;
-    const mouthRadius = 140;
+    const width = 160;
+    const height = 160;
+
+    const arr = range(20);
 
     return (
         <div className={styles.container}>
-            <svg width={width} height={height}>
-                <g transform={`translate(${centerX}, ${centerY})`}>
-                    <BackgroundCircle
-                        height={height}
-                        strokeWidth={strokeWidth}
-                    />
-
-                    <Eyes
-                        eyeOffsetX={eyeOffsetX}
-                        eyeOffsetY={eyeOffsetY}
-                        eyeRadius={eyeRadius}
-                    ></Eyes>
-
-                    <Mouth mouthRadius={mouthRadius} mouthWidth={mouthWidth} />
-                </g>
-            </svg>
+            {arr.map(() => (
+                <Face
+                    width={width}
+                    height={height}
+                    centerX={width / 2}
+                    centerY={height / 2}
+                    strokeWidth={10}
+                    eyeOffsetX={30}
+                    eyeOffsetY={30}
+                    eyeRadius={5 + Math.random() * 10}
+                    mouthWidth={5 + Math.random() * 10}
+                    mouthRadius={30 + Math.random() * 10}
+                />
+            ))}
         </div>
     );
 };
