@@ -8,6 +8,10 @@ const Home: NextPage = () => {
             <Link href="/faces">
                 <h1>Part 1: Smiley faces</h1>
             </Link>
+
+            <Link href="/colorPie">
+                <h1>Part 2: Color pie chart</h1>
+            </Link>
         </div>
     );
 };
