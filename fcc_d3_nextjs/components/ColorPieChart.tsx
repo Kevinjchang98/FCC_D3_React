@@ -1,6 +1,6 @@
 import { arc, pie } from 'd3';
 
-const ColorPie = ({ data }: any) => {
+const ColorPieChart = ({ data }: any) => {
     const width = 960;
     const height = 500;
     const centerX = width / 2;
@@ -21,4 +21,4 @@ const ColorPie = ({ data }: any) => {
     );
 };
 
-export default ColorPie;
+export default ColorPieChart;

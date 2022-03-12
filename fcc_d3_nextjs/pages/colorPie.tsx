@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { csv } from 'd3';
 import { NextPage } from 'next';
-import ColorPie from '../components/ColorPie';
+import ColorPieChart from '../components/ColorPieChart';
 
 const colorPie: NextPage = () => {
     const csvUrl =
@@ -15,7 +15,7 @@ const colorPie: NextPage = () => {
         });
     }, []);
 
-    return <div>{!data ? 'Loading' : <ColorPie data={data} />}</div>;
+    return <div>{!data ? 'Loading' : <ColorPieChart data={data} />}</div>;
 };
 
 export default colorPie;
