@@ -12,6 +12,10 @@ const Home: NextPage = () => {
             <Link href="/colorPie">
                 <h1>Part 2: Color pie chart</h1>
             </Link>
+
+            <Link href="/populationGraph">
+                <h1>Part 3: Population bar chart</h1>
+            </Link>
         </div>
     );
 };
