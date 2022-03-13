@@ -14,7 +14,11 @@ const ColorPieChart = ({ data }: any) => {
         <svg width={width} height={height}>
             <g transform={`translate(${centerX}, ${centerY})`}>
                 {colorPie(data).map((d: any, i: number) => (
-                    <path fill={d.data['RGB hex value']} d={pieArc(d) || ''} />
+                    <path
+                        key={i}
+                        fill={d.data['RGB hex value']}
+                        d={pieArc(d) || ''}
+                    />
                 ))}
             </g>
         </svg>

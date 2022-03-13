@@ -11,8 +11,9 @@ const Faces: NextPage = () => {
 
     return (
         <div className={styles.container}>
-            {arr.map(() => (
+            {arr.map((i) => (
                 <Face
+                    key={i}
                     width={width}
                     height={height}
                     centerX={width / 2}
