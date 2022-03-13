@@ -12,7 +12,7 @@ export const useData = (csvUrl: string, numElements: number) => {
             }
         ) {
             row = (d: any) => {
-                d.Population = +d['2020'];
+                d.Population = +d['2020'] * 1000;
                 return d;
             };
         }
