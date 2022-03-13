@@ -18,7 +18,7 @@ const BarChart = ({ data }: any) => {
         .range([0, innerWidth]);
 
     const xScaleMarks = xScale.ticks().map((tickValue: number) => (
-        <g transform={`translate(${xScale(tickValue)}, 0)`}>
+        <g key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
             <line y2={innerHeight} stroke="gray" />
             <text
                 style={{ textAnchor: 'middle' }}
@@ -32,6 +32,7 @@ const BarChart = ({ data }: any) => {
 
     const yScaleMarks = yScale.domain().map((tickValue: number) => (
         <text
+            key={tickValue}
             style={{ textAnchor: 'end' }}
             dy={'0.32em'}
             x={'-9'}
@@ -43,6 +44,7 @@ const BarChart = ({ data }: any) => {
 
     const bars = data.map((d: any) => (
         <rect
+            key={d.Country}
             x={0}
             y={yScale(d.Country)}
             width={xScale(d.Population)}
